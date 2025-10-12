@@ -10,7 +10,7 @@ const eventsData = {
         "Nukkad Natak - Express social themes through powerful street performances",
       details:
         "A traditional form of street theatre that brings social issues to life. Teams perform in open spaces, engaging with audiences through compelling narratives and powerful performances.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Fashion Show",
@@ -21,7 +21,7 @@ const eventsData = {
         "Showcase creativity and style on the ramp with themed fashion",
       details:
         "Display your fashion sense and creativity with unique theme-based designs. Express yourself through attire, makeup, and presentation that embodies the Nirvana spirit.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "BGMI",
@@ -32,7 +32,7 @@ const eventsData = {
         "Warborn: The BGMI Showdown - Battle royale gaming competition",
       details:
         "Compete in intense Battlegrounds Mobile India matches. Form your squad and prove your tactical prowess in this ultimate mobile gaming showdown.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Valorant",
@@ -42,7 +42,7 @@ const eventsData = {
       description: "One Shot to Nirvana - Tactical FPS gaming championship",
       details:
         "Demonstrate your skills in this competitive tactical shooter. Strategy, teamwork, and precision shooting will determine the champions.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Mock IPL Auction",
@@ -52,7 +52,7 @@ const eventsData = {
       description: "Build your dream cricket team through strategic bidding",
       details:
         "Experience the thrill of being a team owner. Use strategy, cricket knowledge, and bidding skills to create the ultimate cricket franchise.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Murder Mystery",
@@ -62,7 +62,7 @@ const eventsData = {
       description: "Solve the mystery through clues, deduction, and teamwork",
       details:
         "Step into the shoes of a detective. Use your observation skills, logical thinking, and teamwork to unravel a complex murder mystery.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Short Film",
@@ -73,7 +73,7 @@ const eventsData = {
         "Create and present original short films on the Nirvana theme",
       details:
         "Showcase your filmmaking talents. From script to screen, present your creative vision through the medium of short film.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Group Dance",
@@ -84,7 +84,7 @@ const eventsData = {
         "Choreographed team performances with energy and coordination",
       details:
         "Display synchronization, creativity, and energy through group choreography. Any dance style is welcome - make it spectacular!",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Warli Art",
@@ -136,7 +136,7 @@ const eventsData = {
       description: "Indian classical singing performance",
       details:
         "Showcase your mastery of classical Indian vocal music. Demonstrate your training, technique, and emotional expression through raga-based performance.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Indian Dance Solo",
@@ -146,7 +146,7 @@ const eventsData = {
       description: "Classical or folk Indian dance forms",
       details:
         "Perform traditional Indian dance forms like Bharatanatyam, Kathak, Odissi, or folk dances. Express stories and emotions through mudras and movements.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Indian Cinema Solo",
@@ -156,7 +156,7 @@ const eventsData = {
       description: "Bollywood and regional film music performances",
       details:
         "Sing your favorite songs from Indian cinema. From classic melodies to modern chartbusters, showcase your versatility.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Beg Borrow Steal",
@@ -166,7 +166,7 @@ const eventsData = {
       description: "Fast-paced scavenger hunt challenge",
       details:
         "Race against time to collect items from the audience and surroundings. Quick thinking and social skills are your best weapons!",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Chess 960",
@@ -176,7 +176,7 @@ const eventsData = {
       description: "Fischer Random Chess variant competition",
       details:
         "Test your chess skills with randomized starting positions. Pure strategy and calculation matter more than memorized openings.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Instrumental Solo",
@@ -186,7 +186,7 @@ const eventsData = {
       description: "Solo musical instrument performances",
       details:
         "Display your instrumental prowess. Any instrument is welcome - from traditional to modern, create music that moves souls.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Mono Acting",
@@ -196,7 +196,7 @@ const eventsData = {
       description: "Solo theatrical performance and character portrayal",
       details:
         "Bring a character or story to life through solo acting. Use voice modulation, expressions, and body language to captivate the audience.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Anime Quiz",
@@ -206,7 +206,7 @@ const eventsData = {
       description: "Otaku Odyssey - Test your anime knowledge",
       details:
         "Prove your anime expertise! From classics to recent releases, across genres and eras, show you're a true otaku.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Western Vocal Solo",
@@ -216,7 +216,7 @@ const eventsData = {
       description: "English and international music performances",
       details:
         "Sing your heart out with Western music. From rock to pop, jazz to soul, showcase your vocal range and style.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Western Dance Solo",
@@ -226,7 +226,7 @@ const eventsData = {
       description: "Contemporary, hip-hop, and western dance styles",
       details:
         "Express yourself through contemporary Western dance forms. Hip-hop, contemporary, freestyle - show your moves and groove!",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
   ],
   "1-star": [
@@ -238,7 +238,7 @@ const eventsData = {
       description: "Multiple fun and competitive mini challenges",
       details:
         "Participate in various quick games and challenges. Test your skills across different fun activities and win points!",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Where is Waldo",
@@ -248,7 +248,7 @@ const eventsData = {
       description: "Visual search and observation challenge",
       details:
         "Find hidden characters and objects in complex illustrations. Sharp eyes and quick observation skills will lead to victory!",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "The Laugh Lab",
@@ -258,7 +258,7 @@ const eventsData = {
       description: "Improv comedy and mad ads challenge",
       details:
         "Create hilarious improvisations and advertisements on the spot. Think fast, be funny, and make the audience laugh!",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Photography",
@@ -268,7 +268,7 @@ const eventsData = {
       description: "Capture the essence of Nirvana through lens",
       details:
         "Submit photographs that embody the Nirvana theme. Show your perspective, technical skills, and artistic vision.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Face Painting",
@@ -278,7 +278,7 @@ const eventsData = {
       description: "Ethereal Ink - Artistic face painting",
       details:
         "Transform faces into canvases. Create beautiful, themed designs that showcase your artistic skills and creativity.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Clay Modelling",
@@ -288,7 +288,7 @@ const eventsData = {
       description: "Sculpt creative forms from clay",
       details:
         "Mold clay into artistic creations. Show your three-dimensional artistic abilities and attention to detail.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Shark Tank",
@@ -298,7 +298,7 @@ const eventsData = {
       description: "Venture Vault - Pitch your business ideas",
       details:
         "Present your startup idea to our panel of judges. Convince them with your business acumen, pitch, and innovation.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Rap Battle",
@@ -308,7 +308,7 @@ const eventsData = {
       description: "Freestyle rap competition",
       details:
         "Drop bars and prove your lyrical prowess. Rhythm, wordplay, and flow - show you're the ultimate rapper!",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Fitness Witness",
@@ -318,7 +318,7 @@ const eventsData = {
       description: "SW3AT T(O) N!RVANA - Physical fitness challenge",
       details:
         "Test your physical strength, endurance, and fitness. Sweat your way to Nirvana through various fitness challenges!",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Elocution",
@@ -328,7 +328,7 @@ const eventsData = {
       description: "Public speaking on given topics",
       details:
         "Speak eloquently on assigned topics. Show your command over language, expression, and persuasive speaking.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Contemporary Dance",
@@ -338,7 +338,7 @@ const eventsData = {
       description: "Modern interpretive dance performance",
       details:
         "Express emotions and stories through contemporary dance. Blend technique with artistic interpretation.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Debate",
@@ -348,7 +348,7 @@ const eventsData = {
       description: "Debate Me! Maybe - Formal debate competition",
       details:
         "Argue for or against given motions. Logic, research, and persuasive speaking will determine the winner.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Fandom Quiz",
@@ -358,7 +358,7 @@ const eventsData = {
       description: "Fandom Moksha - Pop culture and entertainment quiz",
       details:
         "Test your knowledge of TV shows, movies, music, and pop culture. From Game of Thrones to Marvel, prove you're a true fan!",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
     {
       name: "Reels Making",
@@ -368,7 +368,7 @@ const eventsData = {
       description: "Parichay to Nirvana - Create engaging short videos",
       details:
         "Create creative Instagram reels around the theme. Show your video editing, creativity, and storytelling in short format.",
-      regLink: "https://google.com",
+      regLink: "https://payments.billdesk.com/bdcollect/bd/rnsiotec/6052",
     },
   ],
 };
