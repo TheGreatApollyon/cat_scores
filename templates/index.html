@@ -5,19 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Parichay 2025 - Nirvana | RNSIT</title>
 
-    <!-- Google Fonts -->
+    <!-- Preconnect to external domains for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="{{ url_for('static', filename='css/style.css') }}" as="style" />
+    <link rel="preload" href="{{ url_for('static', filename='videos/halucination.mp4') }}" as="video" type="video/mp4" />
+    <link rel="preload" href="{{ url_for('static', filename='images/rns_logo.png') }}" as="image" />
+    <link rel="preload" href="{{ url_for('static', filename='images/rnsit_header.png') }}" as="image" />
+    <link rel="preload" href="{{ url_for('static', filename='images/dr_shetty.png') }}" as="image" />
+
+    <!-- Google Fonts with display=swap for faster render -->
     <link
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;600&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;600&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
-    <!-- Material Icons -->
+    <!-- Material Icons with async loading -->
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <link
       rel="stylesheet"
@@ -27,11 +54,20 @@
   <body>
     <!-- Video Background -->
     <div class="video-background">
-      <video autoplay muted loop playsinline id="bgVideo">
+      <video 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        preload="auto"
+        id="bgVideo"
+        poster="{{ url_for('static', filename='images/video-poster.jpg') }}"
+      >
         <source
           src="{{ url_for('static', filename='videos/halucination.mp4') }}"
           type="video/mp4"
         />
+        Your browser does not support the video tag.
       </video>
       <div class="video-overlay"></div>
     </div>
@@ -44,6 +80,9 @@
             src="{{ url_for('static', filename='images/rns_logo.png') }}"
             alt="RNS Logo"
             class="logo-rns"
+            width="200"
+            height="200"
+            fetchpriority="high"
           />
         </a>
         <a href="https://rnsit.ac.in" target="_blank" class="nav-header">
@@ -51,6 +90,9 @@
             src="{{ url_for('static', filename='images/rnsit_header.png') }}"
             alt="RNSIT Header"
             class="logo-rnsit"
+            width="400"
+            height="200"
+            fetchpriority="high"
           />
         </a>
         <a href="https://rnsit.ac.in" target="_blank" class="nav-logo">
@@ -58,6 +100,9 @@
             src="{{ url_for('static', filename='images/dr_shetty.png') }}"
             alt="Dr. RN Shetty"
             class="logo-shetty"
+            width="200"
+            height="200"
+            fetchpriority="high"
           />
         </a>
       </div>
@@ -77,6 +122,9 @@
               src="{{ url_for('static', filename='images/catLogo.png') }}"
               alt="CAT Logo"
               class="cat-logo-inline"
+              loading="eager"
+              width="180"
+              height="180"
             />
             <span class="subtitle-text">Presents</span>
           </div>
@@ -84,6 +132,9 @@
             src="{{ url_for('static', filename='images/parichay_logo.png') }}"
             alt="Parichay Logo"
             class="parichay-logo"
+            loading="eager"
+            width="600"
+            height="200"
           />
         </div>
       </section>
@@ -129,12 +180,15 @@
               src="{{ url_for('static', filename='images/catLogo.png') }}"
               alt="CAT Logo"
               class="footer-logo"
+              loading="lazy"
+              width="800"
+              height="800"
             />
           </div>
 
           <div class="social-links">
             <a
-              href="https://www.instagram.com/cat_rnsit/"
+              href="https://www.instagram.com/cat_rnsit"
               target="_blank"
               class="social-link"
               aria-label="Instagram"
@@ -142,18 +196,6 @@
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path
                   d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                />
-              </svg>
-            </a>
-            <a
-              href="https://twitter.com/cat_rnsit"
-              target="_blank"
-              class="social-link"
-              aria-label="X (Twitter)"
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
                 />
               </svg>
             </a>

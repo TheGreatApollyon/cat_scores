@@ -1,10 +1,44 @@
 // Main JavaScript functionality
 
-// Video speed adjustment
+// Video speed adjustment and loading optimization
 document.addEventListener("DOMContentLoaded", () => {
   const video = document.getElementById("bgVideo");
   if (video) {
+    // Set playback rate
     video.playbackRate = 0.75; // Reduce actual speed by 25% (75% speed)
+    
+    // Handle video loading states
+    video.addEventListener('loadeddata', () => {
+      console.log("Video loaded successfully");
+      // Ensure playback rate is set after video loads
+      video.playbackRate = 0.75;
+    });
+    
+    video.addEventListener('canplay', () => {
+      console.log("Video can play");
+      // Try to play the video
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          console.log("Video is playing");
+        }).catch(error => {
+          console.log("Video autoplay prevented:", error);
+          // Attempt to play on user interaction
+          document.addEventListener('click', () => {
+            video.play().catch(e => console.log("Play failed:", e));
+          }, { once: true });
+        });
+      }
+    });
+    
+    video.addEventListener('error', (e) => {
+      console.error("Video loading error:", e, video.error);
+      // Keep poster visible on error
+      console.log("Showing poster due to video error");
+    });
+    
+    // Start loading the video
+    video.load();
   }
 
   // Initialize events display
@@ -211,11 +245,25 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Parallax effect for hero section
+// Hero section fade-out effect on scroll
 window.addEventListener("scroll", () => {
   const scrolled = window.pageYOffset;
   const hero = document.querySelector(".hero-section");
+  
   if (hero) {
-    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+    // Calculate opacity based on scroll position (fade out from 0 to 600px)
+    const fadeStart = 0;
+    const fadeEnd = 600;
+    const opacity = Math.max(0, Math.min(1, 1 - (scrolled - fadeStart) / (fadeEnd - fadeStart)));
+    
+    // Apply fade-out effect
+    hero.style.opacity = opacity;
+    
+    // Optional: Also reduce z-index when faded to ensure it's truly behind
+    if (opacity < 0.1) {
+      hero.style.zIndex = '-1';
+    } else {
+      hero.style.zIndex = '1';
+    }
   }
 });

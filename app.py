@@ -3,8 +3,15 @@ import os
 
 app = Flask(__name__)
 
-# Configure static files
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0  # Disable caching for development
+# Configure for production or development
+IS_PRODUCTION = os.environ.get('FLASK_ENV') == 'production'
+
+if IS_PRODUCTION:
+    # Cache static files for 1 year in production
+    app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 31536000
+else:
+    # Disable caching in development
+    app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 @app.route('/')
 def index():
@@ -32,4 +39,4 @@ def internal_server_error(e):
 
 if __name__ == '__main__':
     # Run the app in debug mode for development
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5001)
