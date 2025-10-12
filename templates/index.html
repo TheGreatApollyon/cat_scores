@@ -1,178 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Parichay 2025 - Nirvana | RNSIT</title>
-    
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-    
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
     <!-- Video Background -->
     <div class="video-background">
-        <video autoplay muted loop playsinline id="bgVideo">
-            <source src="{{ url_for('static', filename='videos/halucination.mp4') }}" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div>
+      <video autoplay muted loop playsinline id="bgVideo">
+        <source
+          src="{{ url_for('static', filename='videos/halucination.mp4') }}"
+          type="video/mp4"
+        />
+      </video>
+      <div class="video-overlay"></div>
     </div>
 
     <!-- Top Navigation Bar -->
     <nav id="topbar" class="topbar">
-        <div class="topbar-content">
-            <a href="https://rnsit.ac.in" target="_blank" class="nav-logo">
-                <img src="{{ url_for('static', filename='images/rns_logo.png') }}" alt="RNS Logo" class="logo-rns">
-            </a>
-            <a href="https://rnsit.ac.in" target="_blank" class="nav-header">
-                <img src="{{ url_for('static', filename='images/rnsit_header.png') }}" alt="RNSIT Header" class="logo-rnsit">
-            </a>
-            <a href="https://rnsit.ac.in" target="_blank" class="nav-logo">
-                <img src="{{ url_for('static', filename='images/dr_shetty.png') }}" alt="Dr. RN Shetty" class="logo-shetty">
-            </a>
-        </div>
+      <div class="topbar-content">
+        <a href="https://rnsit.ac.in" target="_blank" class="nav-logo">
+          <img
+            src="{{ url_for('static', filename='images/rns_logo.png') }}"
+            alt="RNS Logo"
+            class="logo-rns"
+          />
+        </a>
+        <a href="https://rnsit.ac.in" target="_blank" class="nav-header">
+          <img
+            src="{{ url_for('static', filename='images/rnsit_header.png') }}"
+            alt="RNSIT Header"
+            class="logo-rnsit"
+          />
+        </a>
+        <a href="https://rnsit.ac.in" target="_blank" class="nav-logo">
+          <img
+            src="{{ url_for('static', filename='images/dr_shetty.png') }}"
+            alt="Dr. RN Shetty"
+            class="logo-shetty"
+          />
+        </a>
+      </div>
     </nav>
 
     <!-- Main Content Container -->
     <div class="content-wrapper">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-content">
-                <img src="{{ url_for('static', filename='images/parichay_logo.png') }}" alt="Parichay Logo" class="parichay-logo">
-                <div class="hero-subtitle">
-                    <span class="subtitle-text">Presenting</span>
-                    <img src="{{ url_for('static', filename='images/catLogo.png') }}" alt="CAT Logo" class="cat-logo-inline">
-                </div>
-                <h1 class="theme-title">Nirvana</h1>
-                <p class="theme-description">A journey to transcendence through art, music, and culture</p>
-            </div>
-        </section>
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1 class="theme-title">Nirvana</h1>
+          <p class="theme-description">
+            A journey to transcendence through art, music, and culture
+          </p>
+          <div class="hero-subtitle">
+            <img
+              src="{{ url_for('static', filename='images/catLogo.png') }}"
+              alt="CAT Logo"
+              class="cat-logo-inline"
+            />
+            <span class="subtitle-text">Presents</span>
+          </div>
+          <img
+            src="{{ url_for('static', filename='images/parichay_logo.png') }}"
+            alt="Parichay Logo"
+            class="parichay-logo"
+          />
+        </div>
+      </section>
 
-        <!-- Events Section -->
-        <section class="events-section">
-            <h2 class="section-title">Events</h2>
-            
-            <!-- Category Filter -->
-            <div class="category-filter">
-                <button class="filter-btn active" data-category="all">
-                    <span class="material-symbols-rounded">apps</span>
-                    All Events
-                </button>
-                <button class="filter-btn" data-category="5-star">
-                    <span class="material-symbols-rounded">stars</span>
-                    5-Star Events
-                </button>
-                <button class="filter-btn" data-category="3-star">
-                    <span class="material-symbols-rounded">grade</span>
-                    3-Star Events
-                </button>
-                <button class="filter-btn" data-category="1-star">
-                    <span class="material-symbols-rounded">star</span>
-                    1-Star Events
-                </button>
-            </div>
+      <!-- Events Section -->
+      <section class="events-section">
+        <h2 class="section-title">Events</h2>
 
-            <!-- Events Grid -->
-            <div class="events-grid" id="eventsGrid">
-                <!-- Events will be dynamically loaded here -->
-            </div>
-        </section>
+        <!-- Category Filter -->
+        <div class="category-filter">
+          <button class="filter-btn active" data-category="all">
+            <span class="material-symbols-rounded">apps</span>
+            All Events
+          </button>
+          <button class="filter-btn" data-category="5-star">
+            <span class="material-symbols-rounded">stars</span>
+            5-Star Events
+          </button>
+          <button class="filter-btn" data-category="3-star">
+            <span class="material-symbols-rounded">grade</span>
+            3-Star Events
+          </button>
+          <button class="filter-btn" data-category="1-star">
+            <span class="material-symbols-rounded">star</span>
+            1-Star Events
+          </button>
+        </div>
 
-        <!-- Footer Section -->
-        <section class="footer-section">
-            <hr class="footer-divider">
-            
-            <div class="footer-content">
-                <img src="{{ url_for('static', filename='images/catLogo.png') }}" alt="CAT Logo" class="footer-logo">
-                
-                <div class="social-links">
-                    <a href="https://www.instagram.com/cat_rnsit/" target="_blank" class="social-link" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                    <a href="https://twitter.com/cat_rnsit" target="_blank" class="social-link" aria-label="X (Twitter)">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
-                    </a>
-                </div>
+        <!-- Events Grid -->
+        <div class="events-grid" id="eventsGrid">
+          <!-- Events will be dynamically loaded here -->
+        </div>
+      </section>
 
-                <div class="contact-info">
-                    <h3>R.N.S Institute of Technology</h3>
-                    <p class="address">
-                        Dr. Vishnuvardhana Road Post, RNS Farms Rd,<br>
-                        Channasandra, Rajarajeshwari Nagar,<br>
-                        Bengaluru, Karnataka 560098
-                    </p>
-                    <p class="phone">
-                        <span class="material-symbols-rounded">call</span>
-                        080-28611880/1
-                    </p>
-                </div>
+      <!-- Footer Section -->
+      <section class="footer-section">
+        <hr class="footer-divider" />
 
-                <p class="copyright">© 2025 Cultural Activity Team (CAT), RNSIT. All rights reserved.</p>
-            </div>
-        </section>
+        <div class="footer-content">
+          <div class="footer-logo-container">
+            <p class="made-with-love">Made with love by</p>
+            <img
+              src="{{ url_for('static', filename='images/catLogo.png') }}"
+              alt="CAT Logo"
+              class="footer-logo"
+            />
+          </div>
+
+          <div class="social-links">
+            <a
+              href="https://www.instagram.com/cat_rnsit/"
+              target="_blank"
+              class="social-link"
+              aria-label="Instagram"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://twitter.com/cat_rnsit"
+              target="_blank"
+              class="social-link"
+              aria-label="X (Twitter)"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="contact-info">
+            <h3>R.N.S Institute of Technology</h3>
+            <p class="address">
+              Dr. Vishnuvardhana Road Post, RNS Farms Rd,<br />
+              Channasandra, Rajarajeshwari Nagar,<br />
+              Bengaluru, Karnataka 560098
+            </p>
+            <p class="phone">
+              <span class="material-symbols-rounded">call</span>
+              080-28611880/1
+            </p>
+          </div>
+
+          <p class="copyright">
+            © 2025 Cultural Activity Team (CAT), RNSIT. All rights reserved.
+          </p>
+        </div>
+      </section>
     </div>
 
     <!-- Event Details Modal -->
     <div id="eventModal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose">
-                <span class="material-symbols-rounded">close</span>
-            </button>
-            <div class="modal-body" id="modalBody">
-                <!-- Event details will be dynamically loaded here -->
-            </div>
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose">
+          <span class="material-symbols-rounded">close</span>
+        </button>
+        <div class="modal-body" id="modalBody">
+          <!-- Event details will be dynamically loaded here -->
         </div>
+      </div>
     </div>
 
     <!-- Rules Modal -->
     <div id="rulesModal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" id="rulesModalClose">
-                <span class="material-symbols-rounded">close</span>
-            </button>
-            <div class="modal-body">
-                <h2>General Rules & Registration Guidelines</h2>
-                <div class="rules-content">
-                    <h3>General Rules</h3>
-                    <ul>
-                        <li>No form of foul words or misconduct is allowed. Teams should consult coordinators if any stunt or costume design may be deemed inappropriate.</li>
-                        <li>Teams must inform coordinators about any props they plan to use. Use of water, fire, animal skin, or hazardous substances is strictly prohibited.</li>
-                        <li>No religious sentiments or individual interests must be harmed. Violation will lead to direct disqualification.</li>
-                        <li>Cross-cluster teams will not be entertained under any circumstances.</li>
-                        <li>Decisions made by judges or event coordinators are final and must not be questioned. No form of impropriety will be tolerated.</li>
-                        <li>No refunds will be initiated under any circumstance.</li>
-                        <li>Students who are part of any performing clubs are not allowed to participate in competitions or events related to their respective club's performance category.</li>
-                    </ul>
-                    
-                    <h3>Registration Guidelines</h3>
-                    <ul>
-                        <li>Complete the registration form with accurate information</li>
-                        <li>Registration fees are non-refundable</li>
-                        <li>Participants must carry their college ID during the event</li>
-                        <li>Event timings and venues are tentative and subject to change</li>
-                        <li>Points will be awarded based on the event category and position</li>
-                    </ul>
-                    
-                    <p class="rules-agreement">
-                        <strong>By registering for events, you agree to adhere to all the above rules and guidelines.</strong>
-                    </p>
-                </div>
-                <button class="btn-primary" id="acceptRulesBtn">I Understand & Accept</button>
-            </div>
+      <div class="modal-content">
+        <button class="modal-close" id="rulesModalClose">
+          <span class="material-symbols-rounded">close</span>
+        </button>
+        <div class="modal-body">
+          <h2>General Rules & Registration Guidelines</h2>
+          <div class="rules-content">
+            <h3>General Rules</h3>
+            <ul>
+              <li>
+                No form of foul words or misconduct is allowed. Teams should
+                consult coordinators if any stunt or costume design may be
+                deemed inappropriate.
+              </li>
+              <li>
+                Teams must inform coordinators about any props they plan to use.
+                Use of water, fire, animal skin, or hazardous substances is
+                strictly prohibited.
+              </li>
+              <li>
+                No religious sentiments or individual interests must be harmed.
+                Violation will lead to direct disqualification.
+              </li>
+              <li>
+                Cross-cluster teams will not be entertained under any
+                circumstances.
+              </li>
+              <li>
+                Decisions made by judges or event coordinators are final and
+                must not be questioned. No form of impropriety will be
+                tolerated.
+              </li>
+              <li>No refunds will be initiated under any circumstance.</li>
+              <li>
+                Students who are part of any performing clubs are not allowed to
+                participate in competitions or events related to their
+                respective club's performance category.
+              </li>
+            </ul>
+
+            <h3>Registration Guidelines</h3>
+            <ul>
+              <li>Complete the registration form with accurate information</li>
+              <li>Registration fees are non-refundable</li>
+              <li>Participants must carry their college ID during the event</li>
+              <li>
+                Event timings and venues are tentative and subject to change
+              </li>
+              <li>
+                Points will be awarded based on the event category and position
+              </li>
+            </ul>
+
+            <p class="rules-agreement">
+              <strong
+                >By registering for events, you agree to adhere to all the above
+                rules and guidelines.</strong
+              >
+            </p>
+          </div>
+          <button class="btn-primary" id="acceptRulesBtn">
+            I Understand & Accept
+          </button>
         </div>
+      </div>
     </div>
 
     <script src="{{ url_for('static', filename='js/events.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
+  </body>
 </html>

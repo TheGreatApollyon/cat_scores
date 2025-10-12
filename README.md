@@ -14,6 +14,7 @@ A modern, responsive web application for the Parichay 2025 cultural fest at RNSI
 ## Installation
 
 1. Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -21,17 +22,21 @@ pip install -r requirements.txt
 ## Running the Application
 
 ### Development Mode
+
 ```bash
 python app.py
 ```
+
 The application will be available at `http://localhost:5000`
 
 ### Production Mode with Gunicorn
+
 ```bash
 gunicorn -w 4 -b 0.0.0.0:5000 app:app
 ```
 
 For production with more workers:
+
 ```bash
 gunicorn -w 4 -b 0.0.0.0:8000 --timeout 120 app:app
 ```

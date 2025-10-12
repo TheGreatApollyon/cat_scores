@@ -1,0 +1,40 @@
+Please help me create a amazing webapp html + css + js + flask based website to host details and registration link (to an external website) for an event called Parichay being hosted by CAT with the theme Nirvana. to refer to details use this website: "https://radonwork.github.io/CAT/" (use playwright mcp). The problem with this version is its chaotic and badly designed.
+
+This is how I want the layout to be:
+1) A single page with video background of file:halucination.mp4 (slow it down by 75%) this should be fixed in position and only content should move on it when scrolled.
+Apply a blur over it (glass effect like blur). keep the video on loop.
+2) The layout should be as follows. At the top, add a big topbar (unscrolled state should be transparent and take 50% vh, when scrolled down, should reduce to 15% vh and have a glassy frosted background translucent) should have rns logo to the left (scaled appropriately). The contents of the topbar are as follows: to the left add the rns logo in the middle rnsit header and to the right rn shetty image. Clicking on rnsit logo or the header should take one to "https://rnsit.ac.in"
+3) The hero section should have Parichay logo (logo final) and below that the cat logo saying, bringing you parichay(use the logo, be intelligent) by cat or something like that. Please improve typograpy, use approriate fonts from google fonts so it fits nice with the theme.
+4) Below that see in the original website there are 3 categories of events 5, 3 and 1 star use like a segmented button at the top to give me a list of event that comes under that category (refer to the original website for content) Replace emojis by appropriate google font rounded material icons. each even card should only show the event name, no sl no, no price, no button. People should be able to click on the event for it to open a popup to show me info about that event. 
+5) Also in the original website there are 2 different cards for the same event like one that's under the starwise category and one just existing below it which hosts the event details. For this modern redesign. I want so that there's only one card per event and on clicking it should show the event details (here show the price for registration too) and registration link (logic for registration link:
+for the following events: 
+warli art
+banner painting 
+origami 
+model installation
+the reg link is https://forms.gle/D6oecEmh8p6kmwix9
+
+for the rest of the events, just lead them to "https://google.com" for now
+)
+
+also on clicking on registration link, show the general rules and registration guidelines (to be sourced from the pdf) and say something like, by registering you agree to adhere to this and stuff.
+
+And finally, to the end of the page: add a horizontal divider and again show a big cat logo and add social links of insta and x (logos that lead to social pages, for now, make them just go to google)
+
+and the following info of rnsit:
+address of rnsit
+Dr. Vishnuvardhana Road Post, RNS Farms Rd, Channasandra, Rajarajeshwari Nagar, Bengaluru, Karnataka 560098
+
+phone
+
+080-28611880/1
+
+
+
+I need the theme to be responsive, amazing view on both dekstop and primary goal is smartphone. Perfection is expected.
+
+You are to maintain clean granular code, make a local git repo, is some other exists, remove it. For the remote repo use: https://github.com/RADONWORK/CAT.git if it fails use: https://github.com/TheGreatApollyon/catbs.git (only if the first one fails)
+
+then push all the changes there. 
+
+Keep a requirements file and add gnunicorm and gimme its start command. Before you finish use playwright mcp to thoroughly test both functionality and looks and feel of the app. If something is not ahereing to the prompt, fix it. For your reference, all required assets are in this directory, you are free to move them as you want. I want a good structured approach.
