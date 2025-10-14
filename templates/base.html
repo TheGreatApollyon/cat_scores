@@ -29,14 +29,34 @@
       class="navbar {% if session.user_id %}admin-nav{% else %}glass-nav{% endif %}"
     >
       <div class="nav-container">
+        {% if not session.user_id %}
+        <!-- Public view with logos -->
+        <div class="nav-logo-left">
+          <img
+            src="{{ url_for('static', filename='images/rns-logo-white.png') }}"
+            alt="RNSIT Logo"
+            class="rns-logo"
+          />
+        </div>
+        <div class="nav-brand-center">
+          <img
+            src="{{ url_for('static', filename='images/parichaylogo.png') }}"
+            alt="Parichay Logo"
+            class="parichay-logo"
+          />
+          <span class="scores-text">SCORES</span>
+        </div>
+        {% else %}
+        <!-- Admin view with text -->
         <h1 class="nav-brand">
           <a
             href="{{ url_for('overview.public_overview') }}"
-            style="color: white; text-decoration: none"
+            style="color: inherit; text-decoration: none"
           >
             Event Scoring System
           </a>
         </h1>
+        {% endif %}
         <ul class="nav-menu">
           <li>
             <a href="{{ url_for('overview.public_overview') }}">Leaderboard</a>
