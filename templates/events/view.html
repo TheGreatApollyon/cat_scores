@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% block title %}{{ event.name }}{% endblock %} {%
+block content %}
+<div class="page-header">
+  <h2>{{ event.name }}</h2>
+  <div>
+    <a
+      href="{{ url_for('events.edit_event', id=event.id) }}"
+      class="btn btn-secondary"
+      >Edit</a
+    >
+    <a href="{{ url_for('events.list_events') }}" class="btn btn-secondary"
+      >Back to Events</a
+    >
+  </div>
+</div>
+
+<div class="card">
+  <p class="event-meta">
+    Created by: {{ event.get_creator().username }}<br />
+    Created: {{ event.created_at.strftime('%Y-%m-%d %H:%M') }}<br />
+    {% if event.updated_at != event.created_at %} Last Updated: {{
+    event.updated_at.strftime('%Y-%m-%d %H:%M') }}<br />
+    {% endif %}
+  </p>
+</div>
+
+<div class="card">
+  <h3>Results</h3>
+  {% if participants_by_cluster %}
+  <table class="table event-results-table">
+    <thead>
+      <tr>
+        <th>Cluster</th>
+        <th>Participants</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cluster_name, data in participants_by_cluster.items() %}
+      <tr>
+        <td class="cluster-cell">
+          <img
+            src="{{ data.cluster.get_logo_url() }}"
+            alt="{{ cluster_name }}"
+            class="cluster-logo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <span class="cluster-name-fallback" style="display: none"
+            >{{ cluster_name }}</span
+          >
+        </td>
+        <td>
+          <ul class="participants-list">
+            {% for participant in data.participants|sort(attribute='position')
+            %}
+            <li>
+              <strong>{{ participant.name }}</strong> - Position: {{
+              participant.position }}, Points: {{ participant.points }}
+            </li>
+            {% endfor %}
+          </ul>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>No participants in this event.</p>
+  {% endif %}
+</div>
+{% endblock %}

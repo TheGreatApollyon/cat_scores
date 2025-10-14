@@ -1,25 +1,46 @@
 #!/bin/bash
 
-# Start script for Render.com deployment
-# This script uses gunicorn with optimized production settings
+echo "=========================================="
+echo "Event Scoring System - Quick Start"
+echo "=========================================="
+echo ""
 
-# Set Flask environment to production
-export FLASK_ENV=production
+# Check if virtual environment exists
+if [ ! -d "venv" ]; then
+    echo "Creating virtual environment..."
+    python3 -m venv venv
+fi
 
-# Start gunicorn with:
-# - 4 workers (adjust based on your dyno size)
-# - worker-tmp-dir in /dev/shm for better performance
-# - Access logs enabled
-# - Bind to 0.0.0.0:$PORT (Render provides PORT env variable)
-# - Timeout of 120 seconds for long-running requests
+# Activate virtual environment
+echo "Activating virtual environment..."
+source venv/bin/activate
 
-gunicorn \
-    --workers=4 \
-    --worker-class=sync \
-    --worker-tmp-dir=/dev/shm \
-    --bind=0.0.0.0:${PORT:-5001} \
-    --timeout=120 \
-    --access-logfile=- \
-    --error-logfile=- \
-    --log-level=info \
-    app:app
+# Install dependencies if needed
+echo "Checking dependencies..."
+pip install -q -r requirements.txt
+
+echo ""
+echo "=========================================="
+echo "Starting Event Scoring System..."
+echo "=========================================="
+echo ""
+echo "🌐 PUBLIC ACCESS (No login required):"
+echo "  http://127.0.0.1:5000/"
+echo "  http://127.0.0.1:5000/overview"
+echo ""
+echo "🔐 MANAGEMENT ACCESS (Login required):"
+echo "  http://127.0.0.1:5000/login"
+echo "  http://127.0.0.1:5000/manage"
+echo ""
+echo "👤 Default admin credentials:"
+echo "  Username: admin"
+echo "  Password: admin123"
+echo ""
+echo "⚠️  IMPORTANT: Change admin password after first login!"
+echo ""
+echo "Press Ctrl+C to stop the server"
+echo "=========================================="
+echo ""
+
+# Run the application
+python app.py

@@ -1,0 +1,114 @@
+{% extends "base.html" %} {% block title %}Event Manager Management{% endblock
+%} {% block content %}
+<div class="page-header">
+  <h2>Event Manager Management</h2>
+</div>
+
+<div class="card">
+  <h3>Create New Event Manager</h3>
+  <form
+    method="POST"
+    action="{{ url_for('admin.create_manager') }}"
+    class="form-inline"
+  >
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Create Manager</button>
+  </form>
+</div>
+
+<div class="card">
+  <h3>Existing Event Managers</h3>
+  {% if managers %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Created At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for manager in managers %}
+      <tr>
+        <td>{{ manager.username }}</td>
+        <td>{{ manager.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+        <td>
+          <button
+            class="btn btn-sm btn-secondary"
+            onclick="showEditForm({{ manager.id }}, '{{ manager.username }}')"
+          >
+            Edit
+          </button>
+          <form
+            method="POST"
+            action="{{ url_for('admin.delete_manager', id=manager.id) }}"
+            style="display: inline"
+            onsubmit="return confirm('Are you sure you want to delete {{ manager.username }}?');"
+          >
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <tr
+        id="edit-form-{{ manager.id }}"
+        class="edit-row"
+        style="display: none"
+      >
+        <td colspan="3">
+          <form
+            method="POST"
+            action="{{ url_for('admin.edit_manager', id=manager.id) }}"
+            class="form-inline"
+          >
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+            <div class="form-group">
+              <label>Username:</label>
+              <input
+                type="text"
+                name="username"
+                value="{{ manager.username }}"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>New Password (leave blank to keep current):</label>
+              <input type="password" name="password" />
+            </div>
+            <button type="submit" class="btn btn-sm btn-primary">Save</button>
+            <button
+              type="button"
+              class="btn btn-sm btn-secondary"
+              onclick="hideEditForm({{ manager.id }})"
+            >
+              Cancel
+            </button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>No Event Managers found.</p>
+  {% endif %}
+</div>
+
+<script>
+  function showEditForm(id, username) {
+    document.getElementById("edit-form-" + id).style.display = "table-row";
+  }
+
+  function hideEditForm(id) {
+    document.getElementById("edit-form-" + id).style.display = "none";
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %} {% block title %}Create Event{% endblock %} {% block
+content %}
+<div class="page-header">
+  <h2>Create New Event</h2>
+</div>
+
+<div class="card">
+  <form
+    method="POST"
+    action="{{ url_for('events.create_event') }}"
+    id="event-form"
+  >
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+    <div class="form-group">
+      <label for="event_name">Event Name:</label>
+      <input type="text" id="event_name" name="event_name" required />
+    </div>
+
+    <h3>Participants</h3>
+    <div id="participants-container">
+      <div class="participant-row">
+        <select name="cluster_id[]" required>
+          <option value="">Select Cluster</option>
+          {% for cluster in clusters %}
+          <option value="{{ cluster.id }}">{{ cluster.name }}</option>
+          {% endfor %}
+        </select>
+        <input
+          type="text"
+          name="participant_name[]"
+          placeholder="Participant Name"
+          required
+        />
+        <input
+          type="number"
+          name="position[]"
+          placeholder="Position"
+          min="1"
+          required
+        />
+        <input
+          type="number"
+          name="points[]"
+          placeholder="Points"
+          min="0"
+          required
+        />
+        <button
+          type="button"
+          class="btn btn-sm btn-danger"
+          onclick="removeParticipant(this)"
+        >
+          Remove
+        </button>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-secondary" onclick="addParticipant()">
+      Add Participant
+    </button>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Create Event</button>
+      <a href="{{ url_for('events.list_events') }}" class="btn btn-secondary"
+        >Cancel</a
+      >
+    </div>
+  </form>
+</div>
+
+<script src="{{ url_for('static', filename='js/events.js') }}"></script>
+{% endblock %}

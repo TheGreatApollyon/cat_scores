@@ -1,0 +1,53 @@
+{% extends "base.html" %} {% block title %}Cluster Leaderboard{% endblock %} {%
+block content %}
+<div class="page-header">
+  <h2>🏆 Cluster Leaderboard</h2>
+  {% if not public_view and session.user_id %}
+  <a href="{{ url_for('overview.manage_overview') }}" class="btn btn-secondary"
+    >Management Dashboard</a
+  >
+  {% endif %}
+</div>
+
+{% if public_view %}
+<div
+  class="alert alert-info"
+  style="background-color: #e3f2fd; color: #1976d2; border: 1px solid #90caf9"
+>
+  📊 Live competition standings - Updated in real-time
+</div>
+{% endif %}
+
+<div class="card">
+  {% if leaderboard %}
+  <table class="table leaderboard-table">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Cluster</th>
+        <th>Total Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in leaderboard %}
+      <tr>
+        <td class="rank-cell">{{ loop.index }}</td>
+        <td class="cluster-cell">
+          <img
+            src="{{ item.cluster.get_logo_url() }}"
+            alt="{{ item.cluster.name }}"
+            class="cluster-logo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';"
+          />
+          <span class="cluster-name">{{ item.cluster.name }}</span>
+        </td>
+        <td class="points-cell">{{ item.total_points }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>No clusters found.</p>
+  {% endif %}
+</div>
+{% endblock %}

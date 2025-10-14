@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Event Scoring System{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    {% block extra_css %}{% endblock %}
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <h1 class="nav-brand">
+          <a
+            href="{{ url_for('overview.public_overview') }}"
+            style="color: white; text-decoration: none"
+          >
+            Event Scoring System
+          </a>
+        </h1>
+        <ul class="nav-menu">
+          <li>
+            <a href="{{ url_for('overview.public_overview') }}">Leaderboard</a>
+          </li>
+          {% if session.user_id %}
+          <li>
+            <a href="{{ url_for('overview.manage_overview') }}">Dashboard</a>
+          </li>
+          <li><a href="{{ url_for('events.list_events') }}">Events</a></li>
+          {% if session.role == 'admin' %}
+          <li><a href="{{ url_for('admin.managers') }}">Managers</a></li>
+          <li><a href="{{ url_for('logs.view_logs') }}">Logs</a></li>
+          {% endif %}
+          <li class="nav-user">
+            <span>{{ session.username }}</span>
+            <a href="{{ url_for('auth.logout') }}" class="btn-logout">Logout</a>
+          </li>
+          {% else %}
+          <li>
+            <a href="{{ url_for('auth.login') }}" class="btn btn-primary"
+              >Login to Manage</a
+            >
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    <main class="container">
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %}
+      <div class="messages">
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+      {% endif %} {% endwith %} {% block content %}{% endblock %}
+    </main>
+
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>

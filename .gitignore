@@ -42,5 +42,10 @@ instance/
 .DS_Store
 Thumbs.db
 
-# Logs
-*.log
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Database backups
+instance/backups/
