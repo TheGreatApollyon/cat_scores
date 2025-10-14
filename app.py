@@ -127,6 +127,9 @@ def init_database():
 # Create the app instance for Gunicorn
 app = create_app()
 
+# Alternative name for some deployment platforms
+application = app
+
 if __name__ == '__main__':
     print("\n" + "="*50)
     print("Event Scoring System")
