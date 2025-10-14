@@ -24,8 +24,9 @@ def public_overview():
     return render_template('overview.html', leaderboard=leaderboard, public_view=True)
 
 @overview_bp.route('/events')
+@overview_bp.route('/winners')
 def public_events():
-    """Public display of all events"""
+    """Public display of all events - Winner List"""
     from models import Event
     events = Event.query.order_by(Event.created_at.desc()).all()
     return render_template('public_events.html', events=events, public_view=True)

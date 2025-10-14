@@ -240,21 +240,19 @@ body.public-view::after {
 }
 
 .cluster-logo {
-  width: 60px;
-  height: 60px;
+  width: 180px;
+  height: 180px;
   object-fit: contain;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
   transition: transform 0.3s ease;
 }
 
 .cluster-logo:hover {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.05);
 }
 
 .cluster-name {
-  color: rgba(255, 255, 255, 0.95);
-  font-weight: 600;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  display: none;
 }
 
 .points-cell {
@@ -369,4 +367,174 @@ body.public-view::-webkit-scrollbar-thumb {
 
 body.public-view::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================
+   FIXES AND IMPROVEMENTS
+   ============================================ */
+
+/* Fix table headers - make them more visible */
+.table.glass-table thead {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+}
+
+.table.glass-table th {
+  color: rgba(255, 255, 255, 1) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  font-size: 0.95rem !important;
+  letter-spacing: 1px;
+  padding: 1.25rem 1rem !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4) !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6) !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Fix table body text - make all text white and readable */
+.table.glass-table td {
+  color: rgba(255, 255, 255, 1) !important;
+  padding: 1.25rem 1rem !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+  font-weight: 500;
+}
+
+/* Remove floating animation from cards */
+.glass-card {
+  animation: none !important;
+}
+
+/* Remove left border accent from event cards */
+.event-card-public.glass-card {
+  border-left: none !important;
+}
+
+/* Improve all text readability */
+.page-header.glass-header h2 {
+  color: rgba(255, 255, 255, 1) !important;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.6) !important;
+}
+
+.alert-info.glass-alert {
+  color: rgba(255, 255, 255, 1) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+  background: rgba(59, 130, 246, 0.25) !important;
+}
+
+.event-header h3 {
+  color: rgba(255, 255, 255, 1) !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+  font-weight: 700 !important;
+}
+
+.event-date {
+  color: rgba(255, 255, 255, 1) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+}
+
+.event-meta {
+  color: rgba(255, 255, 255, 1) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+}
+
+.cluster-badge {
+  color: rgba(255, 255, 255, 1) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+  font-weight: 700 !important;
+}
+
+.position-cell {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+.points-cell {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  body.public-view::before {
+    filter: blur(30px) brightness(0.6);
+  }
+
+  .card.glass-card {
+    border-radius: 16px;
+    padding: 1.25rem;
+  }
+
+  .navbar.glass-nav {
+    backdrop-filter: blur(30px);
+  }
+
+  .navbar.glass-nav .nav-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .navbar.glass-nav .nav-menu li {
+    flex: 0 0 auto;
+  }
+
+  .navbar.glass-nav .nav-menu a {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .cluster-logo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .table.glass-table {
+    font-size: 0.9rem;
+  }
+
+  .table.glass-table th,
+  .table.glass-table td {
+    padding: 0.75rem 0.5rem !important;
+  }
+
+  .page-header.glass-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .event-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .compact-table {
+    font-size: 0.85rem;
+  }
+
+  .cluster-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+  }
+}
+
+/* Extra small mobile */
+@media (max-width: 480px) {
+  .cluster-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .table.glass-table th,
+  .table.glass-table td {
+    padding: 0.6rem 0.4rem !important;
+    font-size: 0.85rem;
+  }
+
+  .page-header.glass-header {
+    padding: 1.5rem;
+  }
+
+  .page-header.glass-header h2 {
+    font-size: 1.25rem;
+  }
 }

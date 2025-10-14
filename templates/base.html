@@ -42,7 +42,7 @@
             <a href="{{ url_for('overview.public_overview') }}">Leaderboard</a>
           </li>
           <li>
-            <a href="{{ url_for('overview.public_events') }}">Event Boards</a>
+            <a href="{{ url_for('overview.public_events') }}">Winner List</a>
           </li>
           {% if session.user_id %}
           <li>
@@ -81,6 +81,9 @@
       {% endif %} {% endwith %} {% block content %}{% endblock %}
     </main>
 
-    {% block extra_js %}{% endblock %}
+    {% block extra_js %}{% endblock %} {% if not session.user_id %}
+    <!-- Real-time refresh for public views -->
+    <script src="{{ url_for('static', filename='js/realtime-refresh.js') }}"></script>
+    {% endif %}
   </body>
 </html>
