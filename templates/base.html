@@ -102,6 +102,8 @@
     </main>
 
     {% block extra_js %}{% endblock %} {% if not session.user_id %}
+    <!-- Navbar auto-hide on scroll for mobile -->
+    <script src="{{ url_for('static', filename='js/navbar-scroll.js') }}"></script>
     <!-- Real-time refresh for public views -->
     <script src="{{ url_for('static', filename='js/realtime-refresh.js') }}"></script>
     {% endif %}

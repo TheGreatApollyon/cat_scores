@@ -58,6 +58,12 @@ body.public-view::after {
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hide navbar on scroll down (mobile only) */
+.navbar.glass-nav.nav-hidden {
+  transform: translateY(-100%);
 }
 
 .navbar.glass-nav .nav-brand a {
@@ -652,9 +658,11 @@ body.public-view::-webkit-scrollbar-thumb:hover {
 }
 
 .parichay-logo {
-  height: 60px;
-  width: auto;
+  height: auto;
+  width: 200px;
+  max-width: 100%;
   object-fit: contain;
+  object-position: center;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 }
 
@@ -705,7 +713,8 @@ body.public-view::-webkit-scrollbar-thumb:hover {
   }
 
   .parichay-logo {
-    height: 50px;
+    width: 150px;
+    height: auto;
   }
 
   .scores-text {
@@ -720,7 +729,8 @@ body.public-view::-webkit-scrollbar-thumb:hover {
   }
 
   .parichay-logo {
-    height: 40px;
+    width: 120px;
+    height: auto;
   }
 
   .scores-text {
