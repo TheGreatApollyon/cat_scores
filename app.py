@@ -124,8 +124,10 @@ def init_database():
                 db.session.commit()
                 print("✓ Created sample test event with participants")
 
+# Create the app instance for Gunicorn
+app = create_app()
+
 if __name__ == '__main__':
-    app = create_app()
     print("\n" + "="*50)
     print("Event Scoring System")
     print("="*50)
