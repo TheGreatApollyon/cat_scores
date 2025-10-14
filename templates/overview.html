@@ -2,11 +2,6 @@
 block content %}
 <div class="page-header">
   <h2>🏆 Cluster Leaderboard</h2>
-  {% if not public_view and session.user_id %}
-  <a href="{{ url_for('overview.manage_overview') }}" class="btn btn-secondary"
-    >Management Dashboard</a
-  >
-  {% endif %}
 </div>
 
 {% if public_view %}

@@ -2,6 +2,7 @@ from flask import Flask, redirect, url_for
 from flask_wtf.csrf import CSRFProtect
 from config import Config
 from models import db, User, Cluster
+from utils.decorators import login_required
 import os
 
 def create_app():
@@ -43,10 +44,21 @@ def create_app():
     def internal_error(e):
         return "500 - Internal Server Error: Something went wrong", 500
     
-    # Root route - public overview
+    # Root route - public leaderboard
     @app.route('/')
     def index():
         return redirect(url_for('overview.public_overview'))
+    
+    # Legacy /overview route - redirect to /leaderboard
+    @app.route('/overview')
+    def overview_redirect():
+        return redirect(url_for('overview.public_overview'))
+    
+    # Manage route - requires login
+    @app.route('/manage')
+    @login_required
+    def manage():
+        return redirect(url_for('overview.manage_overview'))
     
     # Initialize database
     with app.app_context():
@@ -57,6 +69,8 @@ def create_app():
 
 def init_database():
     """Initialize database with default data"""
+    from models import User, Cluster, Event, Participant
+    
     # Check if clusters already exist
     if Cluster.query.count() == 0:
         # Create 7 predefined clusters
@@ -82,6 +96,33 @@ def init_database():
         db.session.commit()
         print("✓ Created default admin account (username: admin, password: admin123)")
         print("⚠ IMPORTANT: Change the admin password after first login!")
+    
+    # Create a test event if no events exist
+    if Event.query.count() == 0:
+        admin = User.query.filter_by(username='admin').first()
+        if admin:
+            test_event = Event(name='Sample Competition - Opening Ceremony', created_by=admin.id)
+            db.session.add(test_event)
+            db.session.flush()
+            
+            # Add sample participants from different clusters
+            clusters = Cluster.query.all()
+            if len(clusters) >= 3:
+                participants = [
+                    Participant(event_id=test_event.id, cluster_id=clusters[0].id, 
+                               name='Team Alpha', position=1, points=100),
+                    Participant(event_id=test_event.id, cluster_id=clusters[1].id, 
+                               name='Team Beta', position=2, points=85),
+                    Participant(event_id=test_event.id, cluster_id=clusters[2].id, 
+                               name='Team Gamma', position=3, points=70),
+                    Participant(event_id=test_event.id, cluster_id=clusters[0].id, 
+                               name='Team Delta', position=4, points=60),
+                ]
+                for participant in participants:
+                    db.session.add(participant)
+                
+                db.session.commit()
+                print("✓ Created sample test event with participants")
 
 if __name__ == '__main__':
     app = create_app()

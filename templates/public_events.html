@@ -1,0 +1,182 @@
+{% extends "base.html" %} {% block title %}Event Boards{% endblock %} {% block
+content %}
+<div class="page-header">
+  <h2>📋 Event Boards</h2>
+</div>
+
+{% if public_view %}
+<div
+  class="alert alert-info"
+  style="background-color: #e3f2fd; color: #1976d2; border: 1px solid #90caf9"
+>
+  📊 All competition events - View results and standings
+</div>
+{% endif %}
+
+<div class="events-container">
+  {% if events %} {% for event in events %}
+  <div class="card event-card-public">
+    <div class="event-header">
+      <h3>{{ event.name }}</h3>
+      <span class="event-date"
+        >{{ event.created_at.strftime('%B %d, %Y') }}</span
+      >
+    </div>
+
+    <div class="event-details">
+      <p class="event-meta">
+        <strong>Created by:</strong> {{ event.get_creator().username }}<br />
+        <strong>Participants:</strong> {{ event.participants|length }}
+      </p>
+
+      {% if event.participants %}
+      <div class="participants-preview">
+        <h4>Results:</h4>
+        <table class="table compact-table">
+          <thead>
+            <tr>
+              <th>Position</th>
+              <th>Participant</th>
+              <th>Cluster</th>
+              <th>Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for participant in event.participants|sort(attribute='position')
+            %}
+            <tr>
+              <td class="position-cell">
+                {% if participant.position == 1 %}🥇 {% elif
+                participant.position == 2 %}🥈 {% elif participant.position == 3
+                %}🥉 {% else %}{{ participant.position }} {% endif %}
+              </td>
+              <td><strong>{{ participant.name }}</strong></td>
+              <td>
+                <span class="cluster-badge"
+                  >{{ participant.cluster.name }}</span
+                >
+              </td>
+              <td class="points-cell">{{ participant.points }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %} {% else %}
+  <div class="card">
+    <p class="no-events-message">
+      🎯 No events have been posted yet. Check back soon for competition
+      results!
+    </p>
+  </div>
+  {% endif %}
+</div>
+
+<style>
+  .events-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .event-card-public {
+    border-left: 4px solid #3498db;
+  }
+
+  .event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  .event-header h3 {
+    margin: 0;
+    color: #2c3e50;
+  }
+
+  .event-date {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+  }
+
+  .event-details {
+    margin-top: 1rem;
+  }
+
+  .event-meta {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  .participants-preview {
+    margin-top: 1rem;
+  }
+
+  .participants-preview h4 {
+    margin-bottom: 0.75rem;
+    color: #2c3e50;
+  }
+
+  .compact-table {
+    font-size: 0.95rem;
+  }
+
+  .compact-table th,
+  .compact-table td {
+    padding: 0.5rem;
+  }
+
+  .position-cell {
+    font-size: 1.2rem;
+    text-align: center;
+    width: 60px;
+  }
+
+  .cluster-badge {
+    background-color: #e3f2fd;
+    color: #1976d2;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .points-cell {
+    font-weight: bold;
+    color: #27ae60;
+    font-size: 1.1rem;
+  }
+
+  .no-events-message {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    padding: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .event-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .compact-table {
+      font-size: 0.85rem;
+    }
+
+    .cluster-badge {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+    }
+  }
+</style>
+
+{% endblock %}

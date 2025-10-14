@@ -4,7 +4,7 @@ from utils.decorators import login_required
 
 overview_bp = Blueprint('overview', __name__)
 
-@overview_bp.route('/overview')
+@overview_bp.route('/leaderboard')
 def public_overview():
     """Public display of cluster leaderboard with total points"""
     clusters = Cluster.query.all()
@@ -22,6 +22,13 @@ def public_overview():
     leaderboard.sort(key=lambda x: x['total_points'], reverse=True)
     
     return render_template('overview.html', leaderboard=leaderboard, public_view=True)
+
+@overview_bp.route('/events')
+def public_events():
+    """Public display of all events"""
+    from models import Event
+    events = Event.query.order_by(Event.created_at.desc()).all()
+    return render_template('public_events.html', events=events, public_view=True)
 
 @overview_bp.route('/manage')
 @login_required

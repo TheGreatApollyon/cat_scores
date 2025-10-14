@@ -49,3 +49,9 @@ htmlcov/
 
 # Database backups
 instance/backups/
+
+# Database files
+*.db
+*.db-journal
+*.db-shm
+*.db-wal

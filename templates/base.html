@@ -25,11 +25,16 @@
           <li>
             <a href="{{ url_for('overview.public_overview') }}">Leaderboard</a>
           </li>
+          <li>
+            <a href="{{ url_for('overview.public_events') }}">Event Boards</a>
+          </li>
           {% if session.user_id %}
           <li>
             <a href="{{ url_for('overview.manage_overview') }}">Dashboard</a>
           </li>
-          <li><a href="{{ url_for('events.list_events') }}">Events</a></li>
+          <li>
+            <a href="{{ url_for('events.list_events') }}">Manage Events</a>
+          </li>
           {% if session.role == 'admin' %}
           <li><a href="{{ url_for('admin.managers') }}">Managers</a></li>
           <li><a href="{{ url_for('logs.view_logs') }}">Logs</a></li>
@@ -37,12 +42,6 @@
           <li class="nav-user">
             <span>{{ session.username }}</span>
             <a href="{{ url_for('auth.logout') }}" class="btn-logout">Logout</a>
-          </li>
-          {% else %}
-          <li>
-            <a href="{{ url_for('auth.login') }}" class="btn btn-primary"
-              >Login to Manage</a
-            >
           </li>
           {% endif %}
         </ul>
