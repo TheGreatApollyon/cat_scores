@@ -1,21 +1,22 @@
 {% extends "base.html" %} {% block title %}Cluster Leaderboard{% endblock %} {%
 block content %}
-<div class="page-header">
+<div
+  class="page-header {% if public_view %}glass-header{% else %}admin-header{% endif %}"
+>
   <h2>🏆 Cluster Leaderboard</h2>
 </div>
 
 {% if public_view %}
-<div
-  class="alert alert-info"
-  style="background-color: #e3f2fd; color: #1976d2; border: 1px solid #90caf9"
->
+<div class="alert alert-info glass-alert">
   📊 Live competition standings - Updated in real-time
 </div>
 {% endif %}
 
-<div class="card">
+<div class="card {% if public_view %}glass-card{% else %}admin-card{% endif %}">
   {% if leaderboard %}
-  <table class="table leaderboard-table">
+  <table
+    class="table leaderboard-table {% if public_view %}glass-table{% else %}admin-table{% endif %}"
+  >
     <thead>
       <tr>
         <th>Rank</th>

@@ -8,10 +8,26 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
-    {% block extra_css %}{% endblock %}
+    {% if session.user_id %}
+    <!-- Admin Theme -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/admin-theme.css') }}"
+    />
+    {% else %}
+    <!-- Public Glassmorphism Theme -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/public-theme.css') }}"
+    />
+    {% endif %} {% block extra_css %}{% endblock %}
   </head>
-  <body>
-    <nav class="navbar">
+  <body
+    class="{% if session.user_id %}admin-view{% else %}public-view{% endif %}"
+  >
+    <nav
+      class="navbar {% if session.user_id %}admin-nav{% else %}glass-nav{% endif %}"
+    >
       <div class="nav-container">
         <h1 class="nav-brand">
           <a
@@ -48,12 +64,18 @@
       </div>
     </nav>
 
-    <main class="container">
+    <main
+      class="container {% if session.user_id %}admin-container{% else %}glass-container{% endif %}"
+    >
       {% with messages = get_flashed_messages(with_categories=true) %} {% if
       messages %}
       <div class="messages">
         {% for category, message in messages %}
-        <div class="alert alert-{{ category }}">{{ message }}</div>
+        <div
+          class="alert alert-{{ category }} {% if session.user_id %}admin-alert{% endif %}"
+        >
+          {{ message }}
+        </div>
         {% endfor %}
       </div>
       {% endif %} {% endwith %} {% block content %}{% endblock %}

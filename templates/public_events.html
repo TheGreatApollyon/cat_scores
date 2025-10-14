@@ -1,21 +1,18 @@
 {% extends "base.html" %} {% block title %}Event Boards{% endblock %} {% block
 content %}
-<div class="page-header">
+<div class="page-header glass-header">
   <h2>📋 Event Boards</h2>
 </div>
 
 {% if public_view %}
-<div
-  class="alert alert-info"
-  style="background-color: #e3f2fd; color: #1976d2; border: 1px solid #90caf9"
->
+<div class="alert alert-info glass-alert">
   📊 All competition events - View results and standings
 </div>
 {% endif %}
 
 <div class="events-container">
   {% if events %} {% for event in events %}
-  <div class="card event-card-public">
+  <div class="card event-card-public glass-card">
     <div class="event-header">
       <h3>{{ event.name }}</h3>
       <span class="event-date"
@@ -32,7 +29,7 @@ content %}
       {% if event.participants %}
       <div class="participants-preview">
         <h4>Results:</h4>
-        <table class="table compact-table">
+        <table class="table compact-table glass-table">
           <thead>
             <tr>
               <th>Position</th>
@@ -66,7 +63,7 @@ content %}
     </div>
   </div>
   {% endfor %} {% else %}
-  <div class="card">
+  <div class="card glass-card">
     <p class="no-events-message">
       🎯 No events have been posted yet. Check back soon for competition
       results!
